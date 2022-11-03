@@ -3,24 +3,27 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 ng () {
-	echo NG at Line $1
-	res=1
-}
-
-res=0
-+ res=0
-
-  ### I/O TEST###
-  out=$(seq 5 | ./plus)
-  ++ seq 5
-  ++ ./plus
-  + out=15
-  [ "${out}" = 15 ] || ng ${LINENO}
-  + '[' 15 = 15 ']'
-	 　 
-   [ "$res" = 0 ] && echo OK
-   + '[' 0 = 0 ']'
-   + echo OK
-   OK
-   exit $res
-   + exit 0
+	      echo NG at Line $1
+	            res=1
+	    }
+    　
+    res=0
+    　
+    ### I/O TEST ###
+    out=$(seq 5 | ./plus)
+    [ "${out}" = 15.0 ] || ng ${LINENO}
+    　
+    [ "$res" = 0 ] && echo OK        # &&（AND記号）は左側が成功すると右側を実行
+    exit $res
+          　 
+    ### STRANGE INPUT ###
+    out=$(echo あ | ./plus)
+    [ "$?" = 1 ]      || ng ${LINENO}
+    [ "${out}" = "" ] || ng ${LINENO}
+	          　 
+    out=$(echo | ./plus) #空文字
+    [ "$?" = 1 ]      || ng ${LINENO}
+    [ "${out}" = "" ] || ng ${LINENO}
+			    　 
+    [ "$res" = 0 ] && echo OK
+    exit $res
