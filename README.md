@@ -27,4 +27,4 @@
   * [ryuichiueda/my_slides robosys_2022](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2022)
 
 ## その他
-  * 上田准教及びTAの方々、度々の手助けありがとうございます。
+  * 上田准教授及びTAの方々、度々の手助けありがとうございます。
